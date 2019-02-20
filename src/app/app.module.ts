@@ -6,17 +6,23 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpComponent } from './components/http/http.component';
 import { MainComponent } from './components/main/main.component';
+import { ErrorComponent } from './components/error/error.component';
+
+// HTTP
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HttpComponent,
-    MainComponent
+    MainComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
