@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <form #frmUsuario="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+
+      <label for="nombre">Nombres</label>
+      <input type="text"
+            id="nombre"
+            [ngClass]="nombre.touched && !nombre.valid ? 'form-control is-invalid' : 'form-control'"
+            
+            placeholder="Nombres..."
+            [(ngModel)]="usuario.nombre"
+            #nombre="ngModel"
+            name="nombre"
+            required>
+      <small class="text-danger" *ngIf="nombre.touched && !nombre.valid">Por favor, ingrese un nombre</small>
+      
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellidos:</label>
+      <input type="text"
+              id="apellido"
+              [ngClass]="apellido.touched && !apellido.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="Apellidos..."
+              [(ngModel)]="usuario.apellido"
+              #apellido="ngModel"
+              name="apellido"
+              required>
+      <small class="text-danger" *ngIf="apellido.touched && !apellido.valid">Por favor, ingrese un apellido</small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text"
+              id="email"
+              [ngClass]="email.touched && !email.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="Email..."
+              [(ngModel)]="usuario.email"
+              #email="ngModel"
+              name="email"
+              required>
+      <small class="text-danger" *ngIf="email.touched && !email.valid">Por favor, ingrese un email</small>
+    </div>
+    <button type="submit"
+            class="btn btn-block btn-outline-primary"
+            [disabled]="!frmUsuario.valid"> Enviar Datos</button>
+
+
+  </form>
+</div>
