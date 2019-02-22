@@ -13,6 +13,16 @@ import { ErrorComponent } from './components/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
 import { FormsComponent } from './components/forms/forms.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { CapitalizarPipe } from './pipes/capitalizar.pipe';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+
+import { FirestoreSettingsToken } from '@angular/fire/firestore';
+import { FirebaseComponent } from './components/firebase/firebase.component';
+
 
 @NgModule({
   declarations: [
@@ -22,15 +32,20 @@ import { FormsComponent } from './components/forms/forms.component';
     MainComponent,
     ErrorComponent,
     CardUsuarioComponent,
-    FormsComponent
+    FormsComponent,
+    PipesComponent,
+    CapitalizarPipe,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

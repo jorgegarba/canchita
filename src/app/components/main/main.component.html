@@ -1,3 +1,5 @@
-<p>
-  main works!
-</p>
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.ubicacion}}
+  </li>
+</ul>

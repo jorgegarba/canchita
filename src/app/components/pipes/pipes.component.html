@@ -1,0 +1,104 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Variable</th>
+        <th>Pipe</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>uppercase</td>
+        <td>{{ nombre | uppercase }}</td>
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>lowercase</td>
+        <td>{{ nombre | lowercase }}</td>
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>slice</td>
+        <td>{{ nombre | slice:3 }}</td>
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>slice:0:5</td>
+        <td>{{ nombre | slice:0:5 }}</td>
+      </tr>
+      <tr>
+        <td>{{arreglo}}</td>
+        <td>slice:0:5</td>
+        <td>{{ arreglo | slice:0:5 }}</td>
+      </tr>
+      <tr>
+        <td>{{pi}}</td>
+        <td>number:'3'</td>
+        <td>{{ pi | number:'3.0-0' }}</td>
+      </tr>
+      <tr>
+        <td>{{pi}}</td>
+        <td>number:'1.2-4'</td>
+        <td>{{ pi | number:'1.2-4' }}</td>
+      </tr>
+      <tr>
+        <td>{{igv}}</td>
+        <td>percent</td>
+        <td>{{ igv | percent }}</td>
+      </tr>
+      <tr>
+        <td>{{igv}}</td>
+        <td>percent:'2.2-2'</td>
+        <td>{{ igv | percent:'2.2-2' }}</td>
+      </tr>
+      <tr>
+        <td>{{sueldo}}</td>
+        <td>currency:'EUR'</td>
+        <td>{{ sueldo | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+        <td>{{sueldo}}</td>
+        <td>currency:'PEN'</td>
+        <td>{{ sueldo | currency:'PEN' }}</td>
+      </tr>
+      <tr>
+        <td>{{sueldo}}</td>
+        <td>currency:'PEN':false:'4.0-0'</td>
+        <td>{{ sueldo | currency:'PEN':'S/. ':'4.0-0'}}</td>
+      </tr>
+      <tr>
+        <td>{{variableAsincrona}}</td>
+        <td>async</td>
+        <td>{{ variableAsincrona | async}}</td>
+      </tr>
+      <tr>
+        <td>{{hoy}}</td>
+        <td>date</td>
+        <td>{{hoy | date}}</td>
+      </tr>
+      <tr>
+        <td>{{hoy}}</td>
+        <td>date</td>
+        <td>{{hoy | date:'medium'}}</td>
+      </tr>
+      <tr>
+        <td>{{hoy}}</td>
+        <td>date</td>
+        <td>{{hoy | date:'dd // MM // yyyy'}}</td>
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>capitalizar</td>
+        <td>{{nombre | capitalizar}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <hr>
+  <h4>PIPE JSON</h4>
+  <pre>
+    {{objetojson | json}}
+  </pre>
+</div>
