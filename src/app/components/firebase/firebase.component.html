@@ -1,5 +1,11 @@
 <ul class="list-group">
+  <pre>
+      {{canchitas1 | async}}
+  </pre>
     <li class="list-group-item" *ngFor="let cancha of canchitas | async">
-      {{cancha.nombre}}
+      {{cancha.nombre}} {{cancha.id}}
+      <pre>
+        {{cancha | json}}
+      </pre>
     </li>
 </ul>

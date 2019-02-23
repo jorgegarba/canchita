@@ -22,6 +22,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { FirebaseComponent } from './components/firebase/firebase.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FirebaseComponent } from './components/firebase/firebase.component';
     FormsComponent,
     PipesComponent,
     CapitalizarPipe,
-    FirebaseComponent
+    FirebaseComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

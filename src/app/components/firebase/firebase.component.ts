@@ -10,9 +10,13 @@ import {Observable} from 'rxjs';
 export class FirebaseComponent implements OnInit {
 
   canchitas: Observable<any[]>;
-
+  canchitas1;
   constructor(private _db:AngularFirestore) {
     this.canchitas = _db.collection('canchitas').valueChanges();
+    _db.collection('canchitas').snapshotChanges().toPromise().then((result)=>{
+      console.log(result);
+      
+    });
   }
 
   ngOnInit() {
