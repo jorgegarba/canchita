@@ -1,11 +1,36 @@
-<ul class="list-group">
-  <pre>
-      {{canchitas1 | async}}
-  </pre>
-    <li class="list-group-item" *ngFor="let cancha of canchitas | async">
-      {{cancha.nombre}} {{cancha.id}}
-      <pre>
-        {{cancha | json}}
-      </pre>
-    </li>
-</ul>
+<div class="container canchas">
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="crearCancha()" #frmCrear="ngForm">
+        <div class="form-group">
+          <label for="nombre">Nombre de la Canchita</label>
+          <input  type="text"
+                  name="nombre"
+                  id="nombre"
+                  class="form-control"
+                  placeholder="Nombre de la cancha..."
+                  [(ngModel)]="nuevaCancha.nombre">
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección</label>
+          <input  type="text"
+                  name="direccion"
+                  id="direccion"
+                  class="form-control"
+                  placeholder="Direccion de la cancha..."
+                  [(ngModel)]="nuevaCancha.direccion">
+        </div>
+        <button class="btn btn-primary btn-block"
+                type="submit">Crear Cancha</button>
+      </form>
+
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let cancha of canchitas | async">
+          {{cancha.nombre}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
