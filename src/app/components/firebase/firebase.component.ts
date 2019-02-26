@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {FirebaseService} from '../../services/firebase.service';
 @Component({
   selector: 'app-firebase',
@@ -15,7 +16,12 @@ export class FirebaseComponent implements OnInit {
   constructor(private _sFirebase:FirebaseService) {
   }
   ngOnInit() {
-    this.canchitas = this._sFirebase.getCanchas();
+    this.canchitas = this._sFirebase.getCanchas().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      })));
   }
   crearCancha(){
     console.log(this.nuevaCancha);
