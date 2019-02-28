@@ -1,0 +1,24 @@
+<div class="container">
+  <form (ngSubmit)="iniciarSesion()" #frmCrear="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input  type="text"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="email de la cancha..."
+              [(ngModel)]="usuario.email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input  type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="password de la cancha..."
+              [(ngModel)]="usuario.password">
+    </div>
+    <button class="btn btn-primary btn-block"
+            type="submit">Iniciar Sesion</button>
+  </form>
+</div>

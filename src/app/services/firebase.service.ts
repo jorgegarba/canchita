@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
+
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
   db:AngularFirestoreCollection;
+  credenciales;
   constructor(private _db:AngularFirestore) {
     this.db = _db.collection('canchitas');
   }
@@ -31,5 +36,36 @@ export class FirebaseService {
   }
   deleteCancha(cancha:any):Promise<any>{
     return this.db.doc(cancha.id).delete();
+  }
+
+
+
+  doRegister(){
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword('jgarnica@gmail.com', 'XPTecsup2')
+      .then(res => {
+        resolve(res);
+      }, err => reject(err));
+    });
+  }
+
+  iniciar(){
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().signInWithEmailAndPassword('jgarnica@gmail.com', 'XPTecsup2')
+      .then(res => {
+        this.credenciales = res;
+        resolve(res);
+      }, err => reject(err));
+    });
+  }
+
+  iniciarCredentials(){
+    
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().signInWithCredential(this.credenciales)
+      .then(res => {
+        resolve(res);
+      }, err => reject(err));
+    });
   }
 }

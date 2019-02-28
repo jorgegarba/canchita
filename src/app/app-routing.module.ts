@@ -7,6 +7,8 @@ import { FormsComponent } from './components/forms/forms.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { FirebaseComponent } from './components/firebase/firebase.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { LoginComponent } from './components/login/login.component';
+import { GuardAuthService } from './services/guard-auth.service';
 
 const routes: Routes = [
   {
@@ -27,11 +29,16 @@ const routes: Routes = [
   },
   {
     path: 'firebase',
-    component: FirebaseComponent
+    component: FirebaseComponent,
+    canActivate: [GuardAuthService]
   },
   {
     path: 'pipes',
     component: PipesComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',

@@ -19,10 +19,12 @@ import { CapitalizarPipe } from './pipes/capitalizar.pipe';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { FirebaseComponent } from './components/firebase/firebase.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     PipesComponent,
     CapitalizarPipe,
     FirebaseComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]

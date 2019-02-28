@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {FirebaseService} from '../../services/firebase.service';
+
+
 @Component({
   selector: 'app-firebase',
   templateUrl: './firebase.component.html',
@@ -29,5 +31,18 @@ export class FirebaseComponent implements OnInit {
                     .then((response)=>{
                       console.log("La canchita se creó");
                     });
+  }
+
+  registrar(){
+    this._sFirebase.doRegister().then(rpta=>console.log(rpta),error=>console.log(error));
+  }
+
+  iniciar(){
+    this._sFirebase.iniciar().then(rpta=>console.log(rpta.credential),error=>console.log(error));
+  }
+
+  iniciarCredentials(){
+    // this._sFirebase.iniciarCredentials().then(rpta=>console.log(rpta),error=>console.log(error));
+    this._sFirebase.iniciarCredentials();
   }
 }
